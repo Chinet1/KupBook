@@ -1,5 +1,10 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    /*========================================================*/
+    /*This pattern is downloaded from www.subtlepatterns.com*/
+    /*If you need more, that's where to get'em.*/
+    /*========================================================*/
+    background: url("../../img/always_grey.png");
 }
 
 .bg-36 {
