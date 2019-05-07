@@ -35,5 +35,12 @@
         </ul>
     </div>
 </nav>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Księgarnia internetowa</h1>
+        </div>
+    </div>
+</div>
 </body>
 </html>
