@@ -41,6 +41,11 @@
             <h1>Księgarnia internetowa</h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col">Wydawnictwo Mg</div>
+        <div class="col">Wydawnictwo MUZA S.A.</div>
+        <div class="col">Wydawnictwo Albatros</div>
+    </div>
 </div>
 </body>
 </html>
