@@ -17,6 +17,7 @@ body {
 
 .container {
     background: #ffffff;
+    padding: 15px;
 }
 
 h1 {
@@ -24,4 +25,12 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     margin: 2vh;
+}
+
+.tac {
+    text-align: center;
+}
+
+form.login {
+    margin: auto;
 }
