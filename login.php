@@ -2,6 +2,10 @@
     include 'model.php';
     session_start();
 
+    if ($_SESSION['loggedin']) {
+        header('Location: index.php');
+    }
+
     if (isset($_POST['submitted'])) {
 
         if (mysqli_connect_errno()) {
