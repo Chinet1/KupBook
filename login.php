@@ -29,7 +29,7 @@
                     $_SESSION['loggedin'] = TRUE;
                     $_SESSION['name'] = $_POST['login'];
                     $_SESSION['id'] = $id;
-                    echo 'Welcome ' . $_SESSION['name'] . '!';
+                    header('Location: index.php');
                 } else {
                     echo 'Nieprawodiłowe hasło!';
                 }
