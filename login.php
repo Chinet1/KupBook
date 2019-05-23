@@ -6,37 +6,37 @@
         header('Location: index.php');
     }
 
-    if (isset($_POST['submitted'])) {
+    if (isset($_POST['submit'])) {
 
         if (mysqli_connect_errno()) {
-            die ('Błąd połączenia z bazą danych: ' . mysqli_connect_error());
+            die('Błąd połączenia z bazą danych: ' . mysqli_connect_error());
         }
 
         if (empty($_POST['login']) || empty($_POST['password'])) {
-            die ('Uzupełnij oba pola formularza logowania!');
-        }
+            echo '<script>alert("Uzupełnij oba pola formularza logowania!")</script>';
+        } else {
+            if ($query = $con->prepare('SELECT id, password, role FROM `Users` WHERE email = ?')) {
+                $query->bind_param('s', $_POST['login']);
+                $query->execute();
+                $query->store_result();
 
-        if ($query = $con->prepare('SELECT id, password, role FROM `Users` WHERE email = ?')) {
-            $query->bind_param('s', $_POST['login']);
-            $query->execute();
-            $query->store_result();
-
-            if ($query->num_rows > 0) {
-                $query->bind_result($id, $password, $role);
-                $query->fetch();
-                if (password_verify($_POST['password'], $password)) {
-                    session_regenerate_id();
-                    $_SESSION['loggedin'] = TRUE;
-                    $_SESSION['name'] = $_POST['login'];
-                    $_SESSION['id'] = $id;
-                    header('Location: index.php');
+                if ($query->num_rows > 0) {
+                    $query->bind_result($id, $password, $role);
+                    $query->fetch();
+                    if (password_verify($_POST['password'], $password)) {
+                        session_regenerate_id();
+                        $_SESSION['loggedin'] = TRUE;
+                        $_SESSION['name'] = $_POST['login'];
+                        $_SESSION['id'] = $id;
+                        header('Location: index.php');
+                    } else {
+                        echo '<script>alert("Nieprawodiłowe hasło!")</script>';
+                    }
                 } else {
-                    echo 'Nieprawodiłowe hasło!';
+                    echo '<script>alert("Użytkownik o takim adresie e-mail nie istnieje!")</script>';
                 }
-            } else {
-                echo 'Użytkownik o takim adresie e-mail nie istnieje!';
+                $query->close();
             }
-            $query->close();
         }
     }
 
@@ -91,8 +91,7 @@
                 <input type="text" name="login"></label> <br>
                 <label for="password"> Hasło <br>
                 <input type="password" name="password"></label> <br>
-                <input type="hidden" name="submitted">
-                <input type="submit" value="Zaloguj!">
+                <input type="submit" name="submit" value="Zaloguj!">
             </form>
         </div>
     </div>
