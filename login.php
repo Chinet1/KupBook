@@ -36,6 +36,7 @@ require 'model.php';
                             $_SESSION['email'] = $_POST['login'];
                             $_SESSION['name'] = $name . ' ' . $last_name;
                             $_SESSION['id'] = $id;
+                            $_SESSION['role'] = $role;
                             header('Location: index.php');
                         } else {
                             echo '<script>alert("Konto nie zostało jeszcze aktywowane!")</script>';
