@@ -1,5 +1,5 @@
 <?php
-include 'model.php';
+require 'model.php';
 session_start();
 
 if ($_SESSION['loggedin']) {
