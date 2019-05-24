@@ -18,7 +18,7 @@
             <?php
             if ($_SESSION['loggedin']) {
                 echo '<li class="nav-item active">
-                              <a class="nav-link" href="#">Zalogowany jako ' . $_SESSION['name'] . '</a>
+                              <a class="nav-link" href="profile.php">Zalogowany jako ' . $_SESSION['name'] . '</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="logout.php">Wyloguj</a>
@@ -28,7 +28,7 @@
                             <a class="nav-link" href="login.php">Zaloguj się</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/register.php">Zarejestruj się</a>
+                            <a class="nav-link" href="register.php">Zarejestruj się</a>
                         </li>';
             }
             ?>
