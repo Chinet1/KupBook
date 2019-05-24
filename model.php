@@ -1,8 +1,10 @@
 <?php
-
-$con = mysqli_connect('localhost', 'root', 'qwe123', 'KupBook');
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = 'qwe123';
+$DATABASE_NAME = 'KupBook';
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if ( mysqli_connect_errno() ) {
+    die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
 $con->set_charset('utf8');
-//$query_string = "SELECT bk.ID, CONCAT(au.Name, ' ', au.LastName) AS 'Author', bk.Title, bk.Year, bk.Price, pb.Name AS 'Publisher', gn.Name AS 'Genre', bk.Cover FROM `Books` AS bk JOIN `Authors` AS au ON bk.Author = au.ID JOIN `Publishers` AS pb ON bk.Publisher = pb.ID JOIN `Genre` AS gn ON bk.Genre = gn.ID";
-//
-//$result = mysqli_query($con, $query_string);
-
