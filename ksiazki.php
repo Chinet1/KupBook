@@ -25,13 +25,13 @@ require_once 'partials/header.php';
         <div class="row">
         <?php
         if (isset($_GET['q'])) {
-            $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `cover`, `amount` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID` JOIN `Publishers` ON `Publishers`.`ID` = `Books`.`publisher` JOIN `Genre` ON `Books`.`genre` = `Genre`.`ID` WHERE `title` LIKE ?");
+            $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `cover`, `amount` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID` WHERE `title` LIKE ?");
             $param = "%". $_GET['q'] . "%";
             $query->bind_param('s', $param);
             $query->execute();
             $result = $query->get_result();
         } else {
-            $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `cover`, `amount` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID` JOIN `Publishers` ON `Publishers`.`ID` = `Books`.`publisher` JOIN `Genre` ON `Books`.`genre` = `Genre`.`ID` ");
+            $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `cover`, `amount` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID`");
             $query->execute();
             $result = $query->get_result();
         }

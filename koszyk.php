@@ -25,7 +25,7 @@ require_once 'partials/header.php';
                 $i = 0;
                 $amount = 0;
                 foreach ($_SESSION['chart'] as $id) {
-                    $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `Publishers`.`name` as 'publisher', `cover` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID` JOIN `Publishers` ON `Publishers`.`ID` = `Books`.`publisher` JOIN `Genre` ON `Books`.`genre` = `Genre`.`ID` WHERE `Books`.`ID` = ?");
+                    $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `Publishers`.`name` as 'publisher', `cover` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID` JOIN `Publishers` ON `Publishers`.`ID` = `Books`.`publisher` WHERE `Books`.`ID` = ?");
                     $query->bind_param('i', $id);
                     $query->execute();
                     $result = mysqli_fetch_assoc($query->get_result());
