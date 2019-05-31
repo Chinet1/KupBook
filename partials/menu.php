@@ -1,7 +1,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-36">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="index.php">
         <img src="img/logo.png" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,15 @@
                 <a class="nav-link" href="/">Strona Główna <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Przeglądaj zasoby</a>
+                <a class="nav-link" href="ksiazki.php">Przeglądaj zasoby</a>
             </li>
             <?php
             if ($_SESSION['loggedin']) {
-                echo '<li class="nav-item active">
+                echo '
+                        <li class="nav-item">
+                        <a class="nav-link"  href="koszyk.php">Koszyk ('. sizeof($_SESSION['chart']) .')</a>
+                        </li>
+                           <li class="nav-item active">
                               <a class="nav-link" href="profile.php">Zalogowany jako ' . $_SESSION['name'] . '</a>
                           </li>
                           <li class="nav-item">
