@@ -39,7 +39,7 @@ require_once 'partials/header.php';
                     $i++;
                 }
                 echo "<div class='row'><div class='col chart-amount'>Razem: ". $amount ." zł</div></div>"
-                    ."<div class='row'><div class='col'><a href='#' class='btn-add mo'>Złóż zamówienie</a></div></div></div>";
+                    ."<div class='row'><div class='col'><a href='zamowienie.php' class='btn-add mo'>Złóż zamówienie</a></div></div></div>";
             }
         ?>
 </div>
