@@ -34,3 +34,102 @@ h1 {
 form.login {
     margin: auto;
 }
+
+.book {
+    border: 1px solid #000000;
+    margin: 2vh;
+    padding: 2%;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+
+.book .title, .chart-list .title {
+    font-size: 1.1rem;
+}
+
+.book .author, .chart-list .author {
+    font-size: 0.9rem;
+}
+
+.book .price, .chart-list .price {
+    color: #ca0e0e;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.btn-add {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: #ffffff;
+    background: #ca0e0e;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn-add:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background: #b90d0d;
+}
+
+.chart-list {
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    padding: 2px;
+}
+
+.container .chart-list:nth-child(2){
+    border-top: 1px solid rgba(0,0,0,0.3);
+}
+
+.chart-list img {
+    width: 100%;
+}
+
+.chart-list .book-info  {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.chart-amount {
+    font-size: 1.2rem;
+    text-align: right;
+    padding: 15px 40px 15px 0;
+}
+
+.btn-add.mo {
+    width: 20%;
+    margin: 5px auto 0;
+}
+
+.remove-link, .remove-link:hover {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.search-form {
+    margin: auto;
+}
+
+.search-form button {
+    background: #ffffff;
+    border: 1px solid #000000;
+    padding: 3px 8px;
+}
+
+.search-form input {
+    padding: 3px;
+    border: 1px solid #000000;
+}
+
+.btn-add.disabled {
+    background: #333 !important;
+    color: #aaa;
+}
