@@ -139,3 +139,26 @@ form.login {
     color: #ffffff;
     text-align: center;
 }
+
+
+a.del {
+    color: #f44242;
+}
+
+a.add {
+    color: #55c92e;
+}
+
+.form-admin input, .form-admin select {
+    width: 30%;
+    margin: auto;
+}
+
+.form-admin label {
+    margin-bottom: unset;
+    margin-top: .5rem;
+}
+
+input.btn-add {
+    border: none;
+}
