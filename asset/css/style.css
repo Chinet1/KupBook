@@ -133,3 +133,9 @@ form.login {
     background: #333 !important;
     color: #aaa;
 }
+
+.footer {
+    background: #363636;
+    color: #ffffff;
+    text-align: center;
+}
