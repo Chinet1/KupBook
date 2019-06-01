@@ -53,6 +53,4 @@ require_once 'partials/header.php';
         ?>
         </div>
     </div>
-<?php
-?>
 <?php require_once 'partials/footer.php'; ?>
