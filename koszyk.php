@@ -1,7 +1,9 @@
 <?php
 session_start();
 require 'model.php';
-
+if (!$_SESSION['loggedin']) {
+    header('Location: index.php');
+}
 if (isset($_GET['remove'])) {
     array_splice($_SESSION['chart'], intval($_GET['remove']), 1);
     header('Location: koszyk.php');
@@ -41,6 +43,7 @@ require_once 'partials/header.php';
                 echo "<div class='row'><div class='col chart-amount'>Razem: ". $amount ." zł</div></div>"
                     ."<div class='row'><div class='col'><a href='zamowienie.php' class='btn-add mo'>Złóż zamówienie</a></div></div></div>";
             }
+        $query->close();
         ?>
 </div>
 <?php require_once 'partials/footer.php'; ?>
