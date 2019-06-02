@@ -10,12 +10,17 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/">Strona Główna <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Strona Główna <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="ksiazki.php">Przeglądaj zasoby</a>
             </li>
             <?php
+            if ($_SESSION['role'] === 'admin') {
+                echo "<li class='nav-item'>
+                    <a class='nav-link' href='admin.php'>Administracja</a>
+                </li>";
+            }
             if ($_SESSION['loggedin']) {
                 echo '
                         <li class="nav-item">
