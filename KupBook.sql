@@ -99,7 +99,7 @@ CREATE TABLE `Clients` (
 --
 
 INSERT INTO `Clients` (`ID`, `name`, `last_name`, `address`, `user_id`) VALUES
-(1, 'Mateusz', 'Zbylut', 'Żurowa 129, 38-247 Ołpiny', 1),
+(1, 'Mateusz', 'Zbylut', 'ul. Testowa 10, 00-000 Testowo', 1),
 (2, 'Mateusz', 'Klient', 'ul. Testowa 7, 33-100 Tarnów', 2);
 
 -- --------------------------------------------------------
