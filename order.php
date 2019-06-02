@@ -25,6 +25,12 @@ if ($query = $con->prepare("INSERT INTO `Orders` (user, products, order_date, st
 }
 $query->close();
 
+$from    = 'noreply@kupbook.pl';
+$subject = 'KupBook - Potwierdzenie zamowienia';
+$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+$message = '<p>Zamówienie w KupBook zostało wykonane porawnie. Możesz spokojnie czekać na kuriera :)</p>';
+mail($_SESSION['email'], $subject, $message, $headers);
+
 unset($_SESSION['amount']);
 $_SESSION['chart'] = [];
 

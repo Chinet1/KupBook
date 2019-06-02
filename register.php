@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
                             $address = $_POST['address1'] . ", " . $_POST['address2'];
                             $query2->bind_param('sssi', $_POST['name'], $_POST['lastname'], $address, $id);
                             $query2->execute();
-                            $from    = 'noreply@mateuszzbylut.com';
+                            $from    = 'noreply@kupbook.pl';
                             $subject = 'KupBook - Link aktywacyjny';
                             $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
                             $activate_link = 'http://localhost/KupBook/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
