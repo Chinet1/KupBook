@@ -2,6 +2,10 @@
 session_start();
 require 'model.php';
     if (isset($_GET['addToChart'])) {
+        if (!isset($_SESSION['loggedin'])) {
+            header('Location: login.php');
+            die();
+        }
         array_push($_SESSION['chart'], intval($_GET['addToChart']));
         header('Location: ksiazki.php');
     }

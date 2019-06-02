@@ -1,7 +1,9 @@
 <?php
 session_start();
 require 'model.php';
-
+if (!$_SESSION['loggedin']) {
+    header('Location: index.php');
+}
 if (empty($_SESSION['chart'])) {
     header('Location: index.php');
 }

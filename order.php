@@ -1,7 +1,9 @@
 <?php
 session_start();
 require 'model.php';
-
+if (!$_SESSION['loggedin']) {
+    header('Location: index.php');
+}
 if (empty($_SESSION['chart'])) {
     header('Location: index.php');
 }
@@ -21,6 +23,7 @@ if ($query = $con->prepare("INSERT INTO `Orders` (user, products, order_date, st
     $query->bind_param('isssd', intval($_SESSION['id']), $json, $date, $status, $_SESSION['amount']);
     $query->execute();
 }
+$query->close();
 
 unset($_SESSION['amount']);
 $_SESSION['chart'] = [];
