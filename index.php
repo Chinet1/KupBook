@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'model.php';
 
 require_once 'partials/header.php';
 ?>
@@ -13,9 +14,25 @@ require_once 'partials/header.php';
         </div>
     </div>
     <div class="row">
-        <div class="col">Wydawnictwo Mg</div>
-        <div class="col">Wydawnictwo MUZA S.A.</div>
-        <div class="col">Wydawnictwo Albatros</div>
+        <?php
+        $query = $con->prepare("SELECT `Books`.`ID` as 'ID', concat(`Authors`.`name`, ' ', `Authors`.`last_name`) AS 'author', `title`, `price`, `cover`, `amount` FROM `Books` JOIN `Authors` ON `Books`.`author` = `Authors`.`ID` LIMIT 3");
+        $query->execute();
+        $result = $query->get_result();
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<div class='col-md-4'><div class='book'>";
+            echo "<img src='img/covers/". $row['cover'] . "' alt='". $row['title'] . "'><br>";
+            echo "<span class='title'>" . $row['title'] . "</span><br>";
+            echo "<span class='author'>" . $row['author'] . "</span><br>";
+            echo "<span class='price'>" . $row['price'] . " zł</span><br>";
+            echo "</div></div>";
+        }
+        $query->close();
+        ?>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="ksiazki.php" class="btn-add mo">ZOBACZ WIĘCEJ</a>
+        </div>
     </div>
 </div>
 <?php require_once 'partials/footer.php'; ?>
