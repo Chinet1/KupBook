@@ -66,7 +66,7 @@ require_once 'partials/header.php';
     <div class="row">
         <div class="col">
             <form class="login tac" action="login.php" method="post">
-                <label for="login">Login <br>
+                <label for="login">E-mail <br>
                 <input type="text" name="login"></label> <br>
                 <label for="password"> Hasło <br>
                 <input type="password" name="password"></label> <br>
