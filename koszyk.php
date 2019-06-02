@@ -40,7 +40,7 @@ require_once 'partials/header.php';
                     $amount += $result['price'];
                     $i++;
                 }
-                echo "<div class='row'><div class='col chart-amount'>Razem: ". $amount ." zł</div></div>"
+                echo "<div class='row'><div class='col chart-amount'>Razem: ". number_format($amount, 2) ." zł</div></div>"
                     ."<div class='row'><div class='col'><a href='zamowienie.php' class='btn-add mo'>Złóż zamówienie</a></div></div></div>";
             }
         $query->close();

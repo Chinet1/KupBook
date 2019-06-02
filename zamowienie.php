@@ -37,7 +37,7 @@ require_once 'partials/header.php';
         }
         ?>
             </ul>
-            <span>Razem <?php echo $amount;?> zł</span><br><br>
+            <span>Razem <?php echo number_format($amount, 2);?> zł</span><br><br>
             <span>Zamówienie zostanie wysłane na adres:</span><br>
             <?php
             $query = $con->prepare("SELECT `address` FROM `Clients` WHERE `user_id` = ?");
@@ -53,7 +53,7 @@ require_once 'partials/header.php';
             <?php
                 $amount += 15;
                 $_SESSION['amount'] = $amount;
-                echo "<span>Kwota końcowa: ". $amount ." zł</span>"
+                echo "<span>Kwota końcowa: ". number_format($amount, 2) ." zł</span>"
             ?>
             <a class="btn-add mo" href="order.php">Zamów</a>
         </div>
